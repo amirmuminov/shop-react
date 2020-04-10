@@ -1,0 +1,17 @@
+.main-blog{
+    margin-top: 40px;
+}
+
+.main-blog-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-blog-header h1{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;;
+}
+
+
+

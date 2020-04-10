@@ -1,0 +1,15 @@
+.filter-button{
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+    margin-top: 15px;
+    font-weight: 600;
+    border: 3px solid transparent;
+}
+
+.filter-button:hover{
+    transition: .3s;
+    color: black;
+    background-color: white;
+    border: 3px solid #e7e7ee;
+}

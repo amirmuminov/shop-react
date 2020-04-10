@@ -1,0 +1,15 @@
+.filter-tags{
+    margin-top: 40px;
+}
+
+.filter-tags-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filter-tags-header h4{
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 8px;
+}

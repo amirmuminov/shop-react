@@ -1,0 +1,14 @@
+.ant-carousel .slick-slide {
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.main-carousel{
+    position: relative;
+}
+
+left-carousel-button{
+    position: absolute;
+}

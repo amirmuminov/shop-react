@@ -1,0 +1,90 @@
+.contact-header{
+    padding-top: 40px;
+    padding-bottom: 30px;
+    background-color: #f9fafb;
+}
+
+.contact-header h1{
+    text-transform: uppercase;
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.path{
+    color: black;
+}
+
+.path a{
+    color: black;
+}
+
+.path a:hover{
+    text-decoration: underline;
+}
+
+.contact-content{
+    margin-top: 30px;
+    text-align: left;
+}
+
+.contact-content-header{
+    margin-bottom: 20px;
+}
+
+.contact-content-main{
+    text-align: left;
+}
+
+.contact-content-item{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.contact-content-item-image{
+    color: white;
+    border-radius: 50%;
+    padding: 12px 15px;
+    background-color: #a5abb7;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.contact-content-item-text{
+    color: #737475;
+}
+
+.contact-content-item-text span{
+    font-weight: 700;
+}
+
+.contact-content-item-text h4{
+    color: #737475;
+    font-weight: 400;
+}
+
+.contact-mail-block span{
+    font-weight: 700;
+}
+
+.contact-mail-block a h4{
+    color: #00b16a;
+}
+
+.contact-form form{
+    width: 100%;
+}
+
+.contact-input{
+    width: 100%;
+}
+
+.contact-button{
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+}
+
+.contact-button:hover{
+    background-color: #00b16a;
+}

@@ -1,0 +1,9 @@
+.main-top-item-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.main-header{
+    margin-top: 4px;
+}

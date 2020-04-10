@@ -1,0 +1,59 @@
+.posts{
+    margin-top: 30px;
+}
+
+.post{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.post-image img{
+    height: 100%;
+}
+
+.post-content{
+    margin-left: 30px;
+    text-align: left;
+}
+
+.post h3{
+    color: #00b16a;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.post-subheader{
+    color: #00b16a;
+}
+
+.post-subheader:hover{
+    color: black;
+    transition: .3s;
+}
+
+.post h4{
+    margin-bottom: 5px;
+}
+
+.post h4:hover{
+    color: #00b16a;
+    transition: .3s;
+}
+
+.post p{
+    margin-bottom: 5px;
+}
+
+.post-footer{
+    color: #a5abb7;
+    display: flex;
+}
+
+.separator{
+    margin: 0 10px;
+}
+
+.post-details:hover{
+    transition: .3s;
+    color: black
+}

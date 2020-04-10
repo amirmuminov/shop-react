@@ -1,0 +1,11 @@
+.filter-menu{
+    text-align: left;
+    border: 3px solid #e9e9e9;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.filter-submenu{
+    display: flex;
+    justify-content: space-between;
+}

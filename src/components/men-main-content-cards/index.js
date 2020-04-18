@@ -1,29 +1,42 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './men-main-content-cards.css';
-import {Col, Carousel, Row} from "antd";
-import MenMainContentFilter from "../men-main-content-filter";
+import {Row} from "antd";
 import CustomCard from "../custom-card";
+import {connect} from "react-redux";
+import {getProducts} from '../../store/actions/productActions';
 
-function MenMainContentCards() {
+const onMount = (props) => () => {
+        props.getProducts();
+};
+
+function MenMainContentCards(props) {
+
+        useEffect(onMount(props), []);
+
+        const products = props.productReducer.products;
+
+        const productsList = products.map(product => (
+            <CustomCard imageLink={product.image} colSpan={8} title={product.title} price={product.price} discount={product.discount}/>
+        ));
+
     return (
         <Row gutter={30} className="men-main-content-cards">
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-1c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-2c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-3c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-4c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-5c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-6c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-7c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-8c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-9c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-10c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-11c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-12c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-13c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-14c.jpg"}/>
-            <CustomCard colSpan={8} imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-15c.jpg"}/>
+                {productsList}
+                {productsList[1]}
+                {productsList[2]}
         </Row>
     );
 }
 
-export default MenMainContentCards;
+const mapStateToProps = state => ({
+        productReducer: state.productReducer,
+});
+
+const mapDispatchToProps = {
+        getProducts
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MenMainContentCards);

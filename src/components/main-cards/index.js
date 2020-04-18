@@ -1,13 +1,33 @@
-import React from 'react';
-import {Card, Col, Row, Button} from 'antd';
+import React, {useEffect} from 'react';
+import {Card, Col, Row} from 'antd';
 import './main-cards.css';
 import {Link} from 'react-router-dom';
-import {StarFilled, StarOutlined, ShoppingFilled, HeartFilled, SwapOutlined} from "@ant-design/icons";
 import CustomCard from "../custom-card";
+import {connect} from "react-redux";
+import {getProducts} from "../../store/actions/productActions";
 
-function MainCards() {
+const onMount = (props) => () => {
+    props.getProducts();
+};
+
+function MainCards(props) {
+    useEffect(onMount(props), []);
 
     const { Meta } = Card;
+
+    const newestProducts = props.productReducer.products;
+    const topRatedProducts = props.productReducer.products;
+
+    const newestProductsList = newestProducts.map(product => (
+            <CustomCard imageLink={product.image} colSpan={6} title={product.title} price={product.price} discount={product.discount}/>
+        )
+    );
+
+    const topRatedProductsList = newestProducts.map(product => (
+            <CustomCard imageLink={product.image} colSpan={4} title={product.title} price={product.price} discount={product.discount}/>
+        )
+    );
+
 
     return (
         <div className="main-cards">
@@ -44,10 +64,10 @@ function MainCards() {
                     <Link to="/"><h1 className="main-header">featured <span>- newest -</span> top sellers</h1></Link>
                 </div>
                 <Row gutter={16}>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-1.jpg"} colSpan={6}/>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-2.jpg"} colSpan={6}/>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-3.jpg"} colSpan={6}/>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/product-4.jpg"} colSpan={6}/>
+                    {newestProductsList[0]}
+                    {newestProductsList[1]}
+                    {newestProductsList[2]}
+                    {newestProductsList[3]}
                 </Row>
                 <div className="message">
                     <div className="message-content">
@@ -58,16 +78,27 @@ function MainCards() {
                     <Link to="/"><h1 className="main-header"><span>top rated products</span></h1></Link>
                 </div>
                 <Row gutter={20}>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/top-rated-1.jpg"} colSpan={4}/>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/top-rated-2.jpg"} colSpan={4}/>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/top-rated-3.jpg"} colSpan={4}/>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/top-rated-4.jpg"} colSpan={4}/>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/top-rated-5.jpg"} colSpan={4}/>
-                    <CustomCard imageLink={"http://eazzy.me/html/bella-men/assets/img/preview/shop/top-rated-6.jpg"} colSpan={4}/>
+                    {topRatedProductsList[4]}
+                    {topRatedProductsList[5]}
+                    {topRatedProductsList[6]}
+                    {topRatedProductsList[7]}
+                    {topRatedProductsList[8]}
+                    {topRatedProductsList[9]}
                 </Row>
             </div>
         </div>
     );
 }
 
-export default MainCards;
+const mapStateToProps = state => ({
+    productReducer: state.productReducer
+});
+
+const mapDispatchToProps = {
+    getProducts
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MainCards);

@@ -8,6 +8,7 @@ import FilterTabs from "../filter-tabs";
 import TopItems from "../top-items";
 import FilterTags from "../filter-tags";
 import FilterTopProducts from "../filter-top-products";
+import AddProductModal from "../add-product-modal";
 
 function Filter() {
 
@@ -38,6 +39,7 @@ function Filter() {
             />
             <FilterTags/>
             <FilterTopProducts/>
+            <AddProductModal/>
         </Col>
     );
 }

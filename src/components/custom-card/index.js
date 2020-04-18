@@ -14,7 +14,7 @@ function CustomCard(props) {
                 hoverable
                 cover={<img alt="example" src={props.imageLink} />}
             >
-                <Meta title="Standard Product Header" />
+                <Meta title={props.title} />
                 <div className="card-item-rating">
                     <StarFilled className="star"/>
                     <StarFilled className="star"/>
@@ -23,8 +23,8 @@ function CustomCard(props) {
                     <StarOutlined className="star" />
                 </div>
                 <div className="card-price">
-                    <span className="discount-price">$400.00</span>
-                    <span className="actual-price">$425.00</span>
+                    <span className="discount-price">${props.price - (props.price * props.discount / 100)}</span>
+                    <span className="actual-price">${props.price}</span>
                 </div>
                 <div className="card-buttons">
                     <Link to="#" className="header-main-button card-subbutton"><HeartFilled className="header-main-icon" /></Link>

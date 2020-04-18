@@ -4,16 +4,20 @@ import Main from './containers/main';
 import './App.css';
 import Contact from "./containers/contact";
 import Men from "./containers/men";
+import {Provider} from 'react-redux';
+import {store} from './store/store';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Route path="/" exact component={Main}/>
-        <Route path="/contact" exact component={Contact}/>
-        <Route path="/men" exact component={Men}/>
-      </Router>
-    </div>
+      <Provider store={store}>
+        <div className="App">
+          <Router>
+            <Route path="/" exact component={Main}/>
+            <Route path="/contact" exact component={Contact}/>
+            <Route path="/men" exact component={Men}/>
+          </Router>
+        </div>
+      </Provider>
   );
 }
 
